@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "lib": ["es5", "es6", "dom"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es2021",
-    "outDir": "dist",
     "moduleResolution": "node",
+    "baseUrl": "src/",
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2021"],
     "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "package-lock.json"]
+  "include": ["./src/**/*.ts"],
+  "exclude": ["**/node_modules", "package-lock.json", "**/.*/"]
 }
