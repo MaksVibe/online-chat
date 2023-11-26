@@ -1,11 +1,9 @@
-import SignForm from './SignForm/SignForm';
+import styles from './page.module.scss';
 
 export default function HomePage() {
   return (
     <main>
-      <div>
-        <SignForm />
-      </div>
+      <div className={styles.loginContainer}>Home page</div>
     </main>
   );
 }

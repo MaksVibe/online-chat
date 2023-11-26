@@ -10,7 +10,7 @@ export default {
         primaryText: '#ebfffe',
         contentText: '#3c51e6',
         textLink: '#fffefe',
-        activeLink: '#acf2f2',
+        activeLink: 'rgb(202, 138, 4)',
         bgAside: '#f7373a',
       },
       fontFamily: {
