@@ -34,8 +34,6 @@ pids
 client/node_modules/
 server/node_modules/
 jspm_packages/
-client/package-lock.json
-server/package-lock.json
 
 # TypeScript cache
 client/*.tsbuildinfo

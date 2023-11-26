@@ -5,7 +5,10 @@
     "target": "es2021",
     "outDir": "dist",
     "moduleResolution": "node",
-    "lib": ["ES2021"]
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2021"],
+    "strict": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "package-lock.json"]
