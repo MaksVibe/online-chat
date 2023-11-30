@@ -1,42 +1,40 @@
-import cookieParser from 'cookie-parser';
-import cors from 'cors';
-import express, { Application } from 'express';
-import http from 'http';
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const cors_1 = __importDefault(require("cors"));
+const express_1 = __importDefault(require("express"));
+const http_1 = __importDefault(require("http"));
 // import { Server } from 'socket.io';
-import mongoose from 'mongoose';
-import routes from './routes/index';
-import 'dotenv/config';
-
-const app: Application = express();
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-app.use('/api/v1/', routes);
-
+const mongoose_1 = __importDefault(require("mongoose"));
+const index_1 = __importDefault(require("./routes/index"));
+require("dotenv/config");
+const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: false }));
+app.use((0, cookie_parser_1.default)());
+app.use('/api/v1/', index_1.default);
 const port = process.env.PORT || 3010;
 const uriDb = process.env.MONGO_DB_URI;
-const server = http.createServer(app);
+const server = http_1.default.createServer(app);
 // const io = new Server(server);
-
-mongoose.set('strictQuery', true);
-mongoose
-  .connect(uriDb as string)
-  .then(() => {
+mongoose_1.default.set('strictQuery', true);
+mongoose_1.default
+    .connect(uriDb)
+    .then(() => {
     console.log('Database connected successfully 🛢️');
     server.listen(port, () => {
-      console.log(`Server is running at port ${port}`);
+        console.log(`Server is running at port ${port}`);
     });
-  })
-  .catch((error) => {
+})
+    .catch((error) => {
     console.log({ error });
     process.exit(1);
-  });
-
+});
 // let roomUsers: { [s: string]: unknown; } | ArrayLike<unknown>;
-
 // io.on('connection', (socket) => {
 // io.emit('users_response', roomUsers);
 // socket.on('join_room', (roomId) => {
